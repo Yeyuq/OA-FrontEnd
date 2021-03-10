@@ -4,10 +4,12 @@
       <p>{{ nowData }}</p>
       <div class="tasks">
         <ul style="line-height: 27px;word-wrap: break-word;text-align: left">
-          <li v-for="(item,index) in formtodolist.todoList" id="ul_box">
-            <div class="lists">
+          <li v-for="(item,index) in formtodolist.todoList" id="ul_box" class="list_box">
+            <div class="list_checkbox">
               <input :class="{finished:item.isFinished}" type="checkbox" @click="delText(item)"
                      v-model="item.isFinished"></input>
+              </div>
+            <div class="list_label">
               <label>{{ index + 1 }}.{{ item.work }}</label>
             </div>
             <div class="list_btn">
@@ -230,12 +232,18 @@ li:hover .destroy {
   text-decoration: line-through;
 }
 #ul_box{
-  overflow: hidden;
+  //overflow: hidden;
+  display: flex;
 }
-.lists{
-  float: left;
+.list_label{
+  flex: 1;
+}
+.list_checkbox{
+  //float: left;
+  width: 35px;
 }
 .list_btn{
-  float: right;
+  //float: right;
+  width: 35px;
 }
 </style>

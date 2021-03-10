@@ -47,7 +47,7 @@ Mock.mock('/api/register', 'post', function (params) {
 
 Mock.mock('/api/dialogform','post',function (params){
   let data=JSON.parse(params.body);
-  // sdjsjasiodj
+  // sdjsjas
   /*
 
     {"ishave":true, "todo_list":[{"time":"13:41","shiqing":"xiezipue"，"status"：""},{""},{}]}
@@ -75,8 +75,9 @@ Mock.mock('/api/scheduleform','get',function(){
   let todoList = [{
     status : 200,
     index:0,
-    work:Random.cparagraph(1, 2),
-    // time:Random.datetime(),
+    // work:Random.cparagraph(1, 2),
+    work: "adnslakxmabnxmxhoksaxnzcokxzhasdonsckzbqwertiosnjcnxzcnxznckasnsakdskncjxzbcjxznlzmxksadnisoajdskncjxbcjxbvcnosaxmkzmsinsxmkznxjzbcxiz",
+    // time:Random.datetime(),hsoajdmxkzn
     isFinished:false,
   },{
     status: 200,
