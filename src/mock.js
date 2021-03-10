@@ -45,24 +45,24 @@ Mock.mock('/api/register', 'post', function (params) {
   // 返回呢？？？？ 怎么知道能不能让他注册
 })
 
-Mock.mock('/api/dialogform','post',function (params){
-  let data=JSON.parse(params.body);
-  // sdjsjas
-  /*
-
-    {"ishave":true, "todo_list":[{"time":"13:41","shiqing":"xiezipue"，"status"：""},{""},{}]}
-   */
-  let schedule=data.schedule;
-  // let time=data.time;
-  let nowdate=data.nowdata;
-  // let ischeck=data.ischeck;
-  console.log(data)
-
-  console.log("当前日期为："+nowdate+"\n"+"当日日程为："+schedule);
-  return Mock.mock({
-    statusCode:200
-  })
-})
+// Mock.mock('/api/dialogform','post',function (params){
+//   let data=JSON.parse(params.body);
+//   // sdjsjas
+//   /*
+//
+//     {"ishave":true, "todo_list":[{"time":"13:41","shiqing":"xiezipue"，"status"：""},{""},{}]}
+//    */
+//   let schedule=data.schedule;
+//   // let time=data.time;
+//   let nowdate=data.nowdata;
+//   // let ischeck=data.ischeck;
+//   console.log(data)
+//
+//   console.log("当前日期为："+nowdate+"\n"+"当日日程为："+schedule);
+//   return Mock.mock({
+//     statusCode:200
+//   })
+// })
 
 // user date
 Mock.mock('/api/scheduleform','get',function(){
@@ -103,12 +103,25 @@ Mock.mock('/api/changeform','post',function (params){
   // let finishIndex=data.finishIndex;
   let delIndex=data.delIndex;
   let finishIndex=data.finishIndex;
-
   // console.log(params)
 
   console.log("当前删除项为："+delIndex+"\n"+"当前完成项为："+finishIndex);
   return Mock.mock({
     statusCode:201,
+  })
+})
+
+Mock.mock('/api/inputform', 'post', function (params) {
+  let data = JSON.parse(params.body);
+  let addIndex = data.index;
+  let addWork = data.work;
+  let addTime=data.time;
+  let isFinished = data.isFinished;
+
+  console.log("添加项下标："+addIndex+"\n"+"添加时间："+addTime+"\n"+"当日工作计划："+addWork+"\n"+"是否完成："+isFinished);
+
+  return Mock.mock({
+    statusCode:201
   })
 })
 

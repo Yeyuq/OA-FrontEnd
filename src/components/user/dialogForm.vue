@@ -25,13 +25,13 @@
             {{ form.schedule }}
           </div>
         </el-form-item>
-        <el-form-item label="截止时间" :label-width="formLabelWidth" prop="time" class="input_time">
-          <el-input v-model="form.time" autocomplete="off"></el-input>
-        </el-form-item>
+<!--        <el-form-item label="截止时间" :label-width="formLabelWidth" prop="time" class="input_time">-->
+<!--          <el-input v-model="form.time" autocomplete="off"></el-input>-->
+<!--        </el-form-item>-->
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="cancel">取 消</el-button>
-        <el-button type="primary" @click="confirm('form')" v-model="btn_check">确 定</el-button>
+        <el-button @click="cancel">关 闭</el-button>
+        <el-button type="primary" @click="confirm('form')">添 加</el-button>
       </div>
     </el-dialog>
   </div>
@@ -56,16 +56,16 @@ export default {
       // isFinished:'',
       form: {
         schedule: '',
-        time: '',
+        // time: '',
       },
       formLabelWidth: '120px',
       rules: {
         schedule: [
           {required: true, message: '请输入工作日程', trigger: 'blur'},
         ],
-        time: [
-          {required: true, message: '请填写截止时间', trigger: 'blur'}
-        ]
+        // time: [
+        //   {required: true, message: '请填写截止时间', trigger: 'blur'}
+        // ]
       }
     }
   },
@@ -79,30 +79,61 @@ export default {
     }
   },
   methods: {
+    // addDialog(formName){
+    //   console.log(formName.schedule);
+    //   if(formName.schedule){
+    //     let params = {
+    //       'addWork': this.form.schedule,
+    //       'addTime': this.nowData,
+    //       'addIndex': this.formtodolist.todoList.length,
+    //       'isFinished': this.btn_check,
+    //     }
+    //     this.formtodolist.todoList[this.formtodolist.todoList.length]={
+    //       'work':this.form.schedule,
+    //       'time':this.nowData,
+    //       'status':200,
+    //       'isFinished':false,
+    //     };
+    //     axios.post('/api/inputform',params)
+    //     .then(function (response){
+    //       let data=response.data;
+    //       console.log(data);
+    //     })
+    //   }else {
+    //     alert("输入不能为空")
+    //   }
+    // },
     confirm (formName) {
+      console.log(this.form.schedule)
       console.log(this.formtodolist)
       this.$refs[formName].validate((valid) => {
         if (valid) {
           let params = {
-            'schedule': this.form.schedule,
-            'time': this.form.time,
-            'nowdata': this.nowData,
-            'ischeck': this.btn_check,
+            'addWork': this.form.schedule,
+            'addTime': this.nowData,
+            'addIndex': this.formtodolist.todoList.length,
+            'isFinished': this.btn_check,
           }
+          this.formtodolist.todoList[this.formtodolist.todoList.length]={
+            'work':this.form.schedule,
+            'time':this.nowData,
+            'status':200,
+            'isFinished':false,
+          };
           var _this = this
-          axios.post('/api/dialogform', params)
+          axios.post('/api/inputform', params)
             .then(function (response) {
               let data = response.data
               console.log(data)
-              if (data.statusCode === 200) {
+              if (data.statusCode === 201) {
                 _this.$message({
                   message: '日程添加成功',
                   type: 'success'
                 })
-                _this.dialogFormVisible = false
+                // _this.dialogFormVisible = false
                 _this.$refs['form'].resetFields()
               } else {
-                alert('请输入内容')
+                alert('添加失败')
                 return false
               }
             })
