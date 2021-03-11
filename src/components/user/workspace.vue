@@ -142,6 +142,8 @@ export default {
     // },
     openPlan(day){
       clearTimeout(timer);
+      // 把day日期和当前日期进行比对
+      // 如果这个day是以前的日期，则不允许修改工作计划
       timer=setTimeout(()=>{
         // console.log(day);
         this.$refs.mychild.dialogFormVisible = true;
