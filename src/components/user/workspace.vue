@@ -1,11 +1,12 @@
 <template>
-  <div>
-    <div>
+  <div class="workspace_box">
+    <div class="header_box">
       <el-header
         style="text-align: left;height: 40px;position:absolute;bottom:102.9%;z-index: 1;font-size: 17px;font-family: 微软雅黑;padding: 0px">
         <i class="el-icon-s-data"></i>首页
       </el-header>
     </div>
+    <div class="main_box">
     <!--gutter栅栏间隔-->
     <el-row :gutter="27">
       <div class="row_1">
@@ -91,6 +92,7 @@
         </el-col>
       </div>
     </el-row>
+    </div>
   </div>
 </template>
 
@@ -274,7 +276,7 @@ export default {
 
   .grid-content2 /deep/ .el-calendar-table .el-calendar-day {
     height: 34px;
-    width: 37px;
+    width: 34px;
   }
 
   .grid-content2 /deep/ .el-calendar__title {
@@ -288,4 +290,19 @@ export default {
   .grid-content2 /deep/ .el-calendar__header {
     padding: 12px 2px;
   }
+
+  //.workspace_box{
+  //  width: 1200px;
+  //  height: 720px;
+  //  overflow: auto;
+  //}
+
+  .main_box{
+    width: 1200px;
+    height: 700px;
+    //overflow: auto;
+  }
+  //.header_box{
+  //  overflow: hidden;
+  //}
 </style>

@@ -1,7 +1,7 @@
 <template>
   <!--登录表单的容器-->
   <div class="login_container">
-    <el-container>
+    <el-container class="all_box">
       <el-header class="login_header">
         <div>
           <!--<el-avatar class="header_icon" icon="el-icon-office-building" style="color:white;background-color: #162954"></el-avatar>-->
@@ -132,12 +132,15 @@
     background:url("../assets/img/bg2.jpg");
     width:100%;			//大小设置为100%
     height:100%;			//大小设置为100%
+    //width: 1440px;
+    //height: 823px;
+    overflow: auto;
     position:fixed;
     background-size:100% 100%;
   }
 
   .login_header{
-    width: 100%;
+    width: 1440px;
     height: 40px;
     background-color: rgba(255,255,255,0.5);
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2);

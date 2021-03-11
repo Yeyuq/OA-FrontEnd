@@ -149,6 +149,7 @@ export default {
     width: 100%; //大小设置为100%
     height: 100%; //大小设置为100%
     position: fixed;
+    //overflow: auto;
     background-size: 100% 100%;
   }
 
@@ -163,6 +164,7 @@ export default {
     left: 50%;
     top: 40%;
     transform: translate(-50%, -50%);
+    //overflow: auto;
   }
 
   .tab_email {

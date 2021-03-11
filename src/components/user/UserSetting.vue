@@ -135,8 +135,10 @@ export default {
     width: 100%;
     height: 100%;
     position: fixed;
+    overflow: auto;
   }
   .bg_box{
+    //overflow: auto;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -177,6 +179,7 @@ export default {
     /*padding-bottom: 20px;*/
     width: 1220px;
     height: 752px;
+    //overflow: auto;
     /*bottom: 20%;*/
     .user_bgimg{
       width: 100%;
