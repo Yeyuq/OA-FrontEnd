@@ -79,19 +79,25 @@ Mock.mock('/api/scheduleform','get',function(){
     work: "adnslakxmabnxmxhoksaxnzcokxzhasdonsckzbqwertiosnjcnxzcnxznckasnsakdskncjxzbcjxznlzmxksadnisoajdskncjxbcjxbvcnosaxmkzmsinsxmkznxjzbcxiz",
     // time:Random.datetime(),hsoajdmxkzn
     isFinished:false,
+    // isChecked:true,
   },{
     status: 200,
     index: 1,
     work:Random.cparagraph(1, 2),
     // time:Random.datetime(),
     isFinished: false,
+    // isChecked:true,
   },{
     status: 200,
     index: 2,
     work:Random.cparagraph(1, 2),
     // time:Random.datetime(),
     isFinished: true,
+    // isChecked:true,
   }]
+
+  let isFilled=Boolean(todoList.length);
+
   return Mock.mock({
     todoList:todoList,
   })
@@ -125,7 +131,20 @@ Mock.mock('/api/inputform', 'post', function (params) {
   })
 })
 
+// Mock.mock('/api/day_boolean','get',function(){
+//   return Mock.mock({
+//     dayBoolean:Random.boolean(1,5,true),
+//   })
+// })
 
+Mock.mock('/api/day_boolean','get',function(){
+  // let answer = Mock.mock({'regexp': /\w{4}/}).regexp
+  // 返回一个list   time flag
+  let ret_list = {"2021-03-11":{"flag": true}}
+  return Mock.mock({
+    ret_list
+  })
+})
 
 
 

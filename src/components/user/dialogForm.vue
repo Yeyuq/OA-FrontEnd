@@ -43,7 +43,7 @@ export default {
   name: 'dialogForm',
   props: {
     yourdata: String,
-    formtodolist: {}
+    formtodolist: {},
   },
   data () {
     return {
@@ -77,6 +77,7 @@ export default {
       console.log(val)
     }
   },
+
   methods: {
     confirm (formName) {
       console.log(this.form.schedule)
@@ -88,12 +89,14 @@ export default {
             'addTime': this.nowData,
             'addIndex': this.formtodolist.todoList.length,
             'isFinished': false,
+            'isChecked':true,
           }
           this.formtodolist.todoList[this.formtodolist.todoList.length]={
             'work':this.form.schedule,
             'time':this.nowData,
             'status':200,
             'isFinished':false,
+            'isChecked':true,
           };
           var _this = this
           axios.post('/api/inputform', params)
@@ -259,10 +262,11 @@ li {
 
 //调整输入框边距
 .input_box{
-  padding: 7px;
+  padding: 9px;
 }
 .input_content{
-  width: 330px;
+  //width: 330px;
+  width: 43vh;
   //padding: 0 0;
   //margin-left: 10px;
 }
